@@ -1,4 +1,3 @@
-// eq/client/src/components/DashboardSidebar.jsx
 import { NavLink } from "react-router-dom";
 import { Settings, FileText, LogOut } from "lucide-react";
 import { useAuth } from "../context/AuthContext";

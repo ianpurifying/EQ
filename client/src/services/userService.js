@@ -1,4 +1,3 @@
-// eq/client/src/services/userService.js
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -66,13 +65,13 @@ export const resendVerification = async (loginToken) => {
   return response.data;
 };
 
-// NEW: Update user profile
+// Update user profile
 export const updateUserProfile = async (userData) => {
   const response = await api.put("/auth/profile", userData);
   return response.data;
 };
 
-// NEW: Get Philippine locations
+// Get Philippine locations
 export const getPhilippineLocations = async (region = null) => {
   const response = await api.get("/auth/locations", {
     params: region ? { region } : {},

@@ -1,4 +1,3 @@
-// eq/client/src/components/Navbar.jsx
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { LogIn, UserPlus, LayoutDashboard } from "lucide-react";

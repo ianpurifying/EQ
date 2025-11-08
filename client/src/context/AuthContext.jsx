@@ -1,4 +1,3 @@
-// eq/client/src/context/AuthContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 import { verifyToken } from "../services/userService";
 

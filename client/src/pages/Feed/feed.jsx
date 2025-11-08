@@ -1,4 +1,3 @@
-// eq/client/src/pages/Feed/feed.jsx
 import { useState, useEffect } from "react";
 import * as userService from "../../services/eqServices";
 import Navbar from "../../components/Navbar";

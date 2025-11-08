@@ -53,7 +53,7 @@ const safeParse = (data) => {
     try {
       return JSON.parse(data);
     } catch {
-      console.error("❌ Redis data not valid JSON:", data);
+      console.error("Redis data not valid JSON:", data);
       return null;
     }
   }
@@ -171,7 +171,7 @@ export const verifyEmail = async (req, res) => {
       },
     });
   } catch (err) {
-    console.error("🔥 Verify email error:", err);
+    console.error("Verify email error:", err);
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -273,7 +273,7 @@ export const verifyToken = async (req, res) => {
   }
 };
 
-// NEW: Update user profile
+// Update user profile
 export const updateProfile = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
@@ -330,7 +330,7 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-// NEW: Get Philippine locations
+// Get Philippine locations
 export const getLocations = async (req, res) => {
   try {
     const { region } = req.query;
@@ -385,7 +385,7 @@ export const getLocations = async (req, res) => {
     };
 
     if (region) {
-      // Return cities for specific region
+      // Return cities to specific region
       const cities = locations[region] || [];
       res.json({ cities });
     } else {

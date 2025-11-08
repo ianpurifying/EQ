@@ -1,4 +1,3 @@
-// eq/server/models/User.js
 import db from "../config/database.js";
 import bcrypt from "bcrypt";
 
@@ -38,7 +37,7 @@ export const updatePassword = async (userId, newPassword) => {
   await db.execute(query, [hashedPassword, userId]);
 };
 
-// NEW: Update user data (name, email, location)
+// Update user data (name, email, location)
 export const updateUserData = async (userId, data) => {
   const fields = [];
   const values = [];

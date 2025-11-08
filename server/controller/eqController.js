@@ -1,4 +1,3 @@
-
 // server.js
 import express from "express";
 import axios from "axios";
@@ -14,7 +13,6 @@ const BASE_URL = "https://earthquake.phivolcs.dost.gov.ph/";
 app.use(cors());
 app.use(express.json());
 
-// Create an axios instance that ignores SSL certificate errors
 const axiosInstance = axios.create({
   httpsAgent: new https.Agent({
     rejectUnauthorized: false,
@@ -26,7 +24,6 @@ const axiosInstance = axios.create({
 let cachedData = null;
 let lastFetchTime = null;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-
 
 // Function to fetch and parse PHIVOLCS data
 async function fetchEarthquakeData() {
@@ -160,10 +157,8 @@ async function fetchEarthquakeData() {
   }
 }
 
-
-export const eqRefresh = async (req,res) =>{
+export const eqRefresh = async (req, res) => {
   try {
-
     console.log("Force refresh requested");
     const earthquakes = await fetchEarthquakeData();
 
@@ -171,7 +166,7 @@ export const eqRefresh = async (req,res) =>{
     cachedData = earthquakes;
     lastFetchTime = Date.now();
 
-     res.json({
+    res.json({
       success: true,
       data: earthquakes,
       lastUpdated: new Date(lastFetchTime).toISOString(),
@@ -179,18 +174,16 @@ export const eqRefresh = async (req,res) =>{
       message: "Cache refreshed successfully",
     });
   } catch (error) {
-     res.status(500).json({
+    res.status(500).json({
       success: false,
       error: error.message,
       hint: "Check server console and debug_response.html file for more details",
     });
   }
-}
+};
 
-
-export const eqEarthquake = async (req,res) =>{
-    try {
-    
+export const eqEarthquake = async (req, res) => {
+  try {
     // Check if we have cached data and it's still fresh
     const now = Date.now();
     if (cachedData && lastFetchTime && now - lastFetchTime < CACHE_DURATION) {
@@ -226,6 +219,4 @@ export const eqEarthquake = async (req,res) =>{
       hint: "Check server console and debug_response.html file for more details",
     });
   }
-  
-
-}
+};

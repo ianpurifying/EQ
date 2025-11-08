@@ -1,4 +1,3 @@
-// eq/client/src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Signup from "./pages/Auth/Signup";

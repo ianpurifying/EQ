@@ -1,4 +1,3 @@
-// eq/client/src/pages/Settings/Settings.jsx
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import {
